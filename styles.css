@@ -39,6 +39,14 @@ body[data-product="rollcall"] {
     var(--background);
 }
 
+body[data-product="rollcall"] .topbar > .brand {
+  flex-direction: column;
+  justify-self: start;
+  gap: 4px;
+  font-size: 12px;
+  line-height: 1;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -349,7 +357,7 @@ h1 {
 
 .rollcall-row {
   display: grid;
-  grid-template-columns: 1fr 1.35fr 0.55fr;
+  grid-template-columns: 1fr 1.35fr 0.55fr 0.38fr;
   align-items: center;
   min-height: 48px;
   padding: 0 14px;
@@ -357,6 +365,12 @@ h1 {
   color: #343941;
   font-size: 10px;
   font-weight: 650;
+}
+
+.preview-remove {
+  color: #a64242;
+  font-size: 15px;
+  text-align: center;
 }
 
 .rollcall-head {
@@ -380,7 +394,7 @@ h1 {
   min-height: 58px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-inline: -22px;
   padding: 0 22px;
   color: #515660;
