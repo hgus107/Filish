@@ -13,7 +13,7 @@ const products = {
     title: "Rollcall — Preview-First Bulk Rename",
     description: "Rename large file batches locally on your Mac. Preview every name and keep your originals untouched.",
     github: "https://github.com/hgus107/rollcall",
-    version: "Version 0.1.1 · macOS 12+",
+    version: "Version 0.1.2 · macOS 12+",
   },
 };
 
