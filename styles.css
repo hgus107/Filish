@@ -184,6 +184,10 @@ h1 {
   line-height: 1.6;
 }
 
+body[data-product="rollcall"] .hero-text {
+  max-width: 850px;
+}
+
 .hero-actions {
   margin-top: 34px;
   display: flex;
