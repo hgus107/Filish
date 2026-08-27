@@ -3,165 +3,158 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Kiln converts images privately and locally on your Mac. Fast, offline, and free."
-    />
+    <meta id="meta-description" name="description" content="Kiln converts images privately and locally on your Mac. Fast, offline, and free." />
     <meta name="theme-color" content="#090909" />
-    <meta property="og:title" content="Kiln — Convert Images Locally" />
-    <meta
-      property="og:description"
-      content="A fast and private image converter for Mac. No uploads, no subscription, no limits. Free forever."
-    />
+    <meta id="og-title" property="og:title" content="Kiln — Convert Images Locally" />
+    <meta id="og-description" property="og:description" content="A fast and private image converter for Mac. No uploads, no subscription, no limits." />
     <meta property="og:type" content="website" />
     <title>Kiln — Convert Images Locally</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
+  <body data-product="kiln">
     <header class="topbar">
-      <a class="brand" href="#top" aria-label="Kiln Home">
-        <span class="brand-mark" aria-hidden="true">K</span>
-        <span>Kiln</span>
+      <a class="brand" href="./" aria-label="Local Mac Apps Home">
+        <span class="brand-mark" data-current-mark aria-hidden="true">K</span>
+        <span data-current-name>Kiln</span>
       </a>
-      <a
-        class="text-link"
-        href="https://github.com/hgus107/kiln"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <nav class="product-tabs" aria-label="Applications">
+        <button class="product-tab active" type="button" data-product-tab="kiln" aria-selected="true">Kiln</button>
+        <button class="product-tab" type="button" data-product-tab="rollcall" aria-selected="false">Rollcall</button>
+      </nav>
+      <a class="text-link" data-current-github href="https://github.com/hgus107/kiln" target="_blank" rel="noreferrer">
         View On GitHub <span aria-hidden="true">↗</span>
       </a>
     </header>
 
-    <main id="top">
+    <main id="top" data-product-panel="kiln">
       <section class="hero section-shell">
         <div class="hero-copy">
           <p class="eyebrow">Private By Design</p>
           <h1>Convert Images Locally.</h1>
-          <p class="hero-text">
-            Your pictures never leave your computer. Fast and private image
-            converter for Mac. No uploads, no subscription, no limits. Free
-            forever.
-          </p>
+          <p class="hero-text">Your pictures never leave your computer. Fast and private image conversion for Mac. No uploads, no subscription, no artificial limits.</p>
           <div class="hero-actions">
-            <a
-              class="button button-primary"
-              href="https://github.com/hgus107/kiln/releases/latest/download/Kiln_0.1.2_arm64.dmg"
-            >
-              Download For Apple Silicon
-            </a>
+            <a class="button button-primary" href="https://github.com/hgus107/kiln/releases/latest/download/Kiln_0.1.2_arm64.dmg">Download For Apple Silicon</a>
             <span class="download-note">Free · macOS 13+ · Version 0.1.2</span>
           </div>
         </div>
 
         <div class="app-preview" aria-label="Kiln Application Preview">
           <div class="window-bar">
-            <div class="traffic-lights" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </div>
+            <div class="traffic-lights" aria-hidden="true"><span></span><span></span><span></span></div>
             <span class="window-title">Kiln</span>
           </div>
           <div class="preview-body">
             <aside class="preview-settings">
               <p class="preview-label">Output Settings</p>
-              <div class="preview-field">
-                <span>Format</span>
-                <strong>JPEG</strong>
-              </div>
-              <div class="preview-field">
-                <span>New Dimension</span>
-                <strong>2048 * 2048</strong>
-              </div>
-              <div class="preview-field">
-                <span>Compression Quality</span>
-                <strong>85</strong>
-              </div>
+              <div class="preview-field"><span>Format</span><strong>JPEG</strong></div>
+              <div class="preview-field"><span>New Dimension</span><strong>2048 * 2048</strong></div>
+              <div class="preview-field"><span>Compression Quality</span><strong>85</strong></div>
             </aside>
             <div class="preview-queue">
-              <div class="queue-heading">
-                <strong>Image Queue</strong>
-                <span>3 Images</span>
-              </div>
-              <div class="drop-zone">
-                <span class="drop-icon">+</span>
-                <span><strong>Drop Images Here</strong><small>HEIC · AVIF · WebP · JPEG · PNG · TIFF</small></span>
-              </div>
-              <div class="queue-row queue-header">
-                <span>File</span><span>Size Curr/New</span><span>Result</span>
-              </div>
-              <div class="queue-row">
-                <span>mountain.heic</span><span>4.8 MB / 1.2 MB</span><span class="status">Converted</span>
-              </div>
-              <div class="queue-row">
-                <span>portrait.png</span><span>3.1 MB / 840 KB</span><span class="status">Converted</span>
-              </div>
-              <div class="preview-actions">
-                <span>2 Converted</span>
-                <span><button type="button" tabindex="-1">Convert</button><button type="button" tabindex="-1">Save</button></span>
-              </div>
+              <div class="queue-heading"><strong>Image Queue</strong><span>3 Images</span></div>
+              <div class="drop-zone"><span class="drop-icon">+</span><span><strong>Drop Images Here</strong><small>HEIC · AVIF · WebP · JPEG · PNG · TIFF</small></span></div>
+              <div class="queue-row queue-header"><span>File</span><span>Size Curr/New</span><span>Result</span></div>
+              <div class="queue-row"><span>mountain.heic</span><span>4.8 MB / 1.2 MB</span><span class="status">Converted</span></div>
+              <div class="queue-row"><span>portrait.png</span><span>3.1 MB / 840 KB</span><span class="status">Converted</span></div>
+              <div class="preview-actions"><span>2 Converted</span><span><button type="button" tabindex="-1">Convert</button><button type="button" tabindex="-1">Save</button></span></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="benefits section-shell" aria-labelledby="benefits-title">
-        <div class="section-heading">
-          <p class="eyebrow">Built For The Job</p>
-          <h2 id="benefits-title">Nothing Between You And Your Images.</h2>
-        </div>
+      <section class="benefits section-shell" aria-labelledby="kiln-benefits-title">
+        <div class="section-heading"><p class="eyebrow">Built For The Job</p><h2 id="kiln-benefits-title">Nothing Between You And Your Images.</h2></div>
         <div class="card-grid">
-          <article class="feature-card">
-            <h3>Private</h3>
-            <p>Every conversion happens locally. Your images are never uploaded.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Fast</h3>
-            <p>Convert one image or an entire batch without waiting on a server.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Offline</h3>
-            <p>Install once and use Kiln anywhere, with or without an internet connection.</p>
-          </article>
+          <article class="feature-card"><h3>Private</h3><p>Every conversion happens locally. Your images are never uploaded.</p></article>
+          <article class="feature-card"><h3>Fast</h3><p>Convert one image or an entire batch without waiting on a server.</p></article>
+          <article class="feature-card"><h3>Offline</h3><p>Install once and use Kiln anywhere, with or without an internet connection.</p></article>
         </div>
       </section>
 
       <section class="formats section-shell" aria-labelledby="formats-title">
-        <div>
-          <p class="eyebrow">Format Support</p>
-          <h2 id="formats-title">The Formats You Actually Use.</h2>
-        </div>
-        <div class="format-list" aria-label="Supported Image Formats">
-          <span>HEIC</span><span>AVIF</span><span>WebP</span><span>JPEG</span><span>PNG</span><span>TIFF</span>
-        </div>
+        <div><p class="eyebrow">Format Support</p><h2 id="formats-title">The Formats You Actually Use.</h2></div>
+        <div class="format-list" aria-label="Supported Image Formats"><span>HEIC</span><span>AVIF</span><span>WebP</span><span>JPEG</span><span>PNG</span><span>TIFF</span></div>
       </section>
 
-      <section class="install section-shell" aria-labelledby="install-title">
-        <div class="section-heading">
-          <p class="eyebrow">Three Simple Steps</p>
-          <h2 id="install-title">Ready In Less Than A Minute.</h2>
-        </div>
+      <section class="install section-shell" aria-labelledby="kiln-install-title">
+        <div class="section-heading"><p class="eyebrow">Three Simple Steps</p><h2 id="kiln-install-title">Ready In Less Than A Minute.</h2></div>
         <ol class="install-list">
           <li><span>1</span><div><strong>Download Kiln</strong><p>Get the signed and notarized Apple Silicon installer.</p></div></li>
           <li><span>2</span><div><strong>Move To Applications</strong><p>Open the DMG, then drag Kiln into your Applications folder.</p></div></li>
           <li><span>3</span><div><strong>Open And Convert</strong><p>Drop in your images, choose your settings, then convert.</p></div></li>
         </ol>
-        <a
-          class="button button-primary install-button"
-          href="https://github.com/hgus107/kiln/releases/latest/download/Kiln_0.1.2_arm64.dmg"
-        >
-          Download Kiln Free
-        </a>
+        <a class="button button-primary install-button" href="https://github.com/hgus107/kiln/releases/latest/download/Kiln_0.1.2_arm64.dmg">Download Kiln Free</a>
+      </section>
+    </main>
+
+    <main data-product-panel="rollcall" hidden>
+      <section class="hero section-shell">
+        <div class="hero-copy">
+          <p class="eyebrow">Preview Every Name</p>
+          <h1>Rename Files In One Pass.</h1>
+          <p class="hero-text">Add files or a folder, choose one clear function, and review every new name before saving. Your originals stay exactly where they are.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://github.com/hgus107/rollcall/releases/latest/download/Rollcall_0.1.0_arm64.dmg">Download For Apple Silicon</a>
+            <span class="download-note">Free · macOS 12+ · Version 0.1.0</span>
+          </div>
+        </div>
+
+        <div class="app-preview rollcall-preview" aria-label="Rollcall Application Preview">
+          <div class="window-bar">
+            <div class="traffic-lights" aria-hidden="true"><span></span><span></span><span></span></div>
+            <span class="window-title">Rollcall</span>
+          </div>
+          <div class="rollcall-app">
+            <div class="rollcall-app-header"><span class="mini-brand"><b>R</b><span>Rollcall<small>Bulk Rename</small></span></span><span>● Local Only</span></div>
+            <div class="rollcall-content">
+              <div class="rollcall-drop"><span><strong>Add Files Or Folder</strong><small>Pick A File Or Folder</small></span><span><b>Choose Files</b><b>Choose Folder</b></span></div>
+              <div class="rollcall-function"><span><small>Rename Function</small><strong>Add Text</strong></span><span><small>At Beginning</small><strong>Trip-</strong></span><span><small>At End</small><strong>-Final</strong></span></div>
+              <div class="rollcall-table">
+                <div class="rollcall-row rollcall-head"><span>Original Name ↕</span><span>New Name ↕</span><span>Status</span></div>
+                <div class="rollcall-row"><span>IMG_1024.JPG</span><span>Trip-IMG_1024-Final.JPG</span><span><i>Ready</i></span></div>
+                <div class="rollcall-row"><span>IMG_1025.JPG</span><span>Trip-IMG_1025-Final.JPG</span><span><i>Ready</i></span></div>
+              </div>
+              <div class="rollcall-actions"><span>2 Files · 2 Ready To Save</span><b>Save As</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits section-shell" aria-labelledby="rollcall-benefits-title">
+        <div class="section-heading"><p class="eyebrow">Safe By Default</p><h2 id="rollcall-benefits-title">Know The Result Before You Save.</h2></div>
+        <div class="card-grid">
+          <article class="feature-card"><h3>Preview First</h3><p>Original Name, New Name, and Status stay together for every file.</p></article>
+          <article class="feature-card"><h3>Originals Stay Put</h3><p>Rollcall writes renamed copies to your chosen folder without changing the source files.</p></article>
+          <article class="feature-card"><h3>Local</h3><p>No files, filenames, or folder paths are sent to a server.</p></article>
+        </div>
+      </section>
+
+      <section class="formats section-shell" aria-labelledby="functions-title">
+        <div><p class="eyebrow">Five Clear Functions</p><h2 id="functions-title">No Pattern Language Required.</h2></div>
+        <div class="format-list rollcall-functions" aria-label="Rename Functions"><span>Add Text</span><span>Replace Text</span><span>Change Case</span><span>Add Numbers</span><span>Add Date</span></div>
+      </section>
+
+      <section class="install section-shell" aria-labelledby="rollcall-install-title">
+        <div class="section-heading"><p class="eyebrow">Three Simple Steps</p><h2 id="rollcall-install-title">A Large Batch Without The Guesswork.</h2></div>
+        <ol class="install-list">
+          <li><span>1</span><div><strong>Add Files Or A Folder</strong><p>Bring up to 20,000 visible files into one local queue.</p></div></li>
+          <li><span>2</span><div><strong>Choose And Preview</strong><p>Pick a rename function and review every proposed name and warning.</p></div></li>
+          <li><span>3</span><div><strong>Save Renamed Copies</strong><p>Choose or type a destination folder. Your originals remain untouched.</p></div></li>
+        </ol>
+        <a class="button button-primary install-button" href="https://github.com/hgus107/rollcall/releases/latest/download/Rollcall_0.1.0_arm64.dmg">Download Rollcall Free</a>
       </section>
     </main>
 
     <footer class="footer section-shell">
-      <div class="brand footer-brand"><span class="brand-mark" aria-hidden="true">K</span><span>Kiln</span></div>
-      <p>Version 0.1.2 · macOS 13+ · Apple Silicon</p>
+      <div class="brand footer-brand"><span class="brand-mark" data-current-mark aria-hidden="true">K</span><span data-current-name>Kiln</span></div>
+      <p><span data-current-version>Version 0.1.2 · macOS 13+</span> · Apple Silicon</p>
       <nav aria-label="Footer Links">
-        <a href="https://github.com/hgus107/kiln" target="_blank" rel="noreferrer">Source Code</a>
-        <a href="https://github.com/hgus107/kiln/releases" target="_blank" rel="noreferrer">All Releases</a>
-        <a href="https://github.com/hgus107/kiln/blob/main/LICENSE" target="_blank" rel="noreferrer">License</a>
+        <a data-current-github href="https://github.com/hgus107/kiln" target="_blank" rel="noreferrer">Source Code</a>
+        <a data-current-releases href="https://github.com/hgus107/kiln/releases" target="_blank" rel="noreferrer">All Releases</a>
+        <a data-current-license href="https://github.com/hgus107/kiln/blob/main/LICENSE" target="_blank" rel="noreferrer">License</a>
       </nav>
     </footer>
+
+    <script src="./site.js" defer></script>
   </body>
 </html>

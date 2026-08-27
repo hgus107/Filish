@@ -31,6 +31,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body[data-product="rollcall"] {
+  --orange: #5f86ef;
+  --orange-hover: #78a0ff;
+  background:
+    radial-gradient(circle at 72% 13%, rgba(74, 118, 232, 0.16), transparent 25rem),
+    var(--background);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -49,10 +57,48 @@ a {
 
 .topbar {
   min-height: 78px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
+  gap: 24px;
   border-bottom: 1px solid var(--line);
+}
+
+.topbar > .text-link {
+  justify-self: end;
+}
+
+.product-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.product-tab {
+  min-width: 92px;
+  height: 36px;
+  padding: 0 15px;
+  border: 0;
+  border-radius: 8px;
+  color: var(--muted);
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: color 160ms ease, background 160ms ease;
+}
+
+.product-tab:hover {
+  color: var(--text);
+}
+
+.product-tab.active {
+  color: white;
+  background: var(--orange);
 }
 
 .brand {
@@ -164,9 +210,187 @@ h1 {
 .button:focus-visible,
 .text-link:focus-visible,
 .footer a:focus-visible,
-.brand:focus-visible {
+.brand:focus-visible,
+.product-tab:focus-visible {
   outline: 3px solid rgba(255, 75, 18, 0.48);
   outline-offset: 4px;
+}
+
+.rollcall-preview {
+  background: #204e9f;
+}
+
+.rollcall-app {
+  min-height: 510px;
+  background: #204e9f;
+}
+
+.rollcall-app-header {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.17);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.mini-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.mini-brand > b {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 8px;
+  background: #112b5b;
+}
+
+.mini-brand > span {
+  display: grid;
+  gap: 1px;
+}
+
+.mini-brand small {
+  color: #d7e4ff;
+  font-size: 8px;
+}
+
+.rollcall-content {
+  min-height: 448px;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 12px;
+  padding: 18px 22px 0;
+}
+
+.rollcall-drop,
+.rollcall-function,
+.rollcall-table {
+  border: 1px solid #d9dfe9;
+  border-radius: 11px;
+  background: white;
+}
+
+.rollcall-drop {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+}
+
+.rollcall-drop > span:first-child,
+.rollcall-drop > span:last-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rollcall-drop > span:first-child {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rollcall-drop small,
+.rollcall-function small {
+  color: #747984;
+  font-size: 9px;
+}
+
+.rollcall-drop b,
+.rollcall-actions b {
+  padding: 10px 13px;
+  border: 1px solid #cfd5df;
+  border-radius: 8px;
+  color: #2d3543;
+  font-size: 10px;
+}
+
+.rollcall-drop b:last-child,
+.rollcall-actions b {
+  color: white;
+  border-color: #112b5b;
+  background: #112b5b;
+}
+
+.rollcall-function {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  padding: 12px;
+}
+
+.rollcall-function > span {
+  display: grid;
+  gap: 7px;
+}
+
+.rollcall-function strong {
+  min-height: 34px;
+  padding: 9px 10px;
+  border: 1px solid #d5dae3;
+  border-radius: 7px;
+  color: #30343b;
+  font-size: 10px;
+}
+
+.rollcall-table {
+  overflow: hidden;
+}
+
+.rollcall-row {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 0.55fr;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 14px;
+  border-top: 1px solid #e4e7ec;
+  color: #343941;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.rollcall-head {
+  min-height: 36px;
+  border-top: 0;
+  background: #f4f5f7;
+  color: #555b64;
+  font-size: 9px;
+}
+
+.rollcall-row i {
+  display: inline-block;
+  padding: 5px 7px;
+  border-radius: 99px;
+  color: #207655;
+  background: #e8f4ed;
+  font-style: normal;
+}
+
+.rollcall-actions {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: -22px;
+  padding: 0 22px;
+  color: #515660;
+  background: white;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.rollcall-functions {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .download-note {
@@ -558,6 +782,17 @@ h2 {
   .footer nav {
     justify-content: center;
   }
+
+  .topbar {
+    grid-template-columns: 1fr auto;
+  }
+
+  .product-tabs {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-bottom: 12px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -567,7 +802,12 @@ h2 {
   }
 
   .topbar {
-    min-height: 68px;
+    min-height: 116px;
+    gap: 10px;
+  }
+
+  .topbar > .text-link {
+    font-size: 12px;
   }
 
   .brand-mark {
@@ -598,6 +838,38 @@ h2 {
 
   .preview-queue {
     padding: 20px 14px;
+  }
+
+  .rollcall-app,
+  .rollcall-content {
+    min-height: 430px;
+  }
+
+  .rollcall-content {
+    padding-inline: 12px;
+  }
+
+  .rollcall-drop {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .rollcall-function {
+    grid-template-columns: 1fr;
+  }
+
+  .rollcall-row {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .rollcall-row span:nth-child(3) {
+    display: none;
+  }
+
+  .rollcall-actions {
+    margin-inline: -12px;
+    padding-inline: 12px;
   }
 
   .queue-row {
