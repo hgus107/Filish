@@ -457,6 +457,14 @@ body[data-product="rollcall"] .hero-text {
   background: #55a8d8;
 }
 
+.quire-logo-mark {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
 .quire-app-header .mini-brand small {
   color: #bfd4cf;
 }
