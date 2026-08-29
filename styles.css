@@ -39,6 +39,14 @@ body[data-product="rollcall"] {
     var(--background);
 }
 
+body[data-product="quire"] {
+  --orange: #55a8d8;
+  --orange-hover: #70b9e2;
+  background:
+    radial-gradient(circle at 72% 13%, rgba(64, 165, 184, 0.17), transparent 25rem),
+    var(--background);
+}
+
 body[data-product="rollcall"] .topbar > .brand {
   flex-direction: column;
   justify-self: start;
@@ -409,6 +417,200 @@ body[data-product="rollcall"] .hero-text {
 
 .rollcall-functions {
   grid-template-columns: repeat(3, 1fr);
+}
+
+.quire-functions {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.quire-preview,
+.quire-app {
+  background: #0f4a42;
+}
+
+.quire-window-bar {
+  border-bottom-color: #246259;
+  background: #0f4a42;
+}
+
+.quire-window-bar .window-title {
+  color: #d9ebe7;
+}
+
+.quire-app {
+  min-height: 510px;
+}
+
+.quire-app-header {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.quire-app-header .mini-brand > b {
+  background: #55a8d8;
+}
+
+.quire-app-header .mini-brand small {
+  color: #bfd4cf;
+}
+
+.quire-content {
+  min-height: 438px;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 12px;
+  padding: 18px 22px 16px;
+}
+
+.quire-controls,
+.quire-drop,
+.quire-table,
+.quire-actions {
+  border: 1px solid #cddbd8;
+  border-radius: 11px;
+  background: white;
+}
+
+.quire-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 220px));
+  gap: 14px;
+  padding: 13px 16px;
+}
+
+.quire-controls > span {
+  display: grid;
+  gap: 6px;
+}
+
+.quire-controls small {
+  color: #667873;
+  font-size: 9px;
+  font-weight: 750;
+}
+
+.quire-controls strong {
+  padding: 9px 10px;
+  border: 1px solid #b9cbc7;
+  border-radius: 7px;
+  color: #1d2926;
+  font-size: 10px;
+}
+
+.quire-drop {
+  min-height: 74px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 16px;
+  color: #17221f;
+}
+
+.quire-drop > span:nth-child(2) {
+  display: grid;
+  gap: 4px;
+}
+
+.quire-drop small {
+  color: #687a75;
+  font-size: 9px;
+}
+
+.quire-drop > b,
+.quire-actions b {
+  padding: 9px 12px;
+  border: 1px solid #a9c9d8;
+  border-radius: 7px;
+  color: #173834;
+  background: #e3f3fa;
+  font-size: 10px;
+}
+
+.quire-pages {
+  position: relative;
+  width: 34px;
+  height: 39px;
+}
+
+.quire-pages i {
+  position: absolute;
+  inset: 3px 5px 1px 1px;
+  border: 1px solid #8cb2bd;
+  border-radius: 5px;
+  background: white;
+  transform: rotate(-7deg);
+}
+
+.quire-pages i:nth-child(2) {
+  inset: 2px 2px 2px 4px;
+  transform: rotate(2deg);
+}
+
+.quire-pages i:nth-child(3) {
+  inset: 3px 0 0 8px;
+  border-color: #55a8d8;
+  background: #eef8fd;
+  transform: rotate(7deg);
+}
+
+.quire-table {
+  overflow: hidden;
+}
+
+.quire-row {
+  min-height: 47px;
+  display: grid;
+  grid-template-columns: 0.45fr 2.3fr 1fr 0.7fr;
+  align-items: center;
+  padding: 0 14px;
+  border-top: 1px solid #dce8e5;
+  color: #26322f;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.quire-head {
+  min-height: 35px;
+  border-top: 0;
+  background: #e3f3fa;
+  color: #101b18;
+  font-size: 9px;
+}
+
+.quire-row i,
+.quire-row span:last-child b {
+  display: inline-block;
+  padding: 5px 7px;
+  border-radius: 8px;
+  color: #257bb0;
+  background: #dbf0fa;
+  font-style: normal;
+}
+
+.quire-row span:last-child b {
+  color: #277457;
+  background: #e3f3eb;
+}
+
+.quire-actions {
+  min-height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.quire-actions > span {
+  display: flex;
+  gap: 7px;
 }
 
 .download-note {
@@ -879,6 +1081,26 @@ h2 {
 
   .rollcall-row {
     grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .quire-content {
+    padding-inline: 12px;
+  }
+
+  .quire-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quire-row {
+    grid-template-columns: 0.5fr 1.7fr 1fr;
+  }
+
+  .quire-row span:nth-child(4) {
+    display: none;
+  }
+
+  .quire-functions {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .rollcall-row span:nth-child(3) {

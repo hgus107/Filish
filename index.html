@@ -9,7 +9,7 @@
     <meta id="og-description" property="og:description" content="A fast and private image converter for Mac. No uploads, no subscription, no limits." />
     <meta property="og:type" content="website" />
     <title>Kiln — Convert Images Locally</title>
-    <link rel="stylesheet" href="./styles.css?v=20260827-2" />
+    <link rel="stylesheet" href="./styles.css?v=20260829-1" />
   </head>
   <body data-product="kiln">
     <header class="topbar">
@@ -20,6 +20,7 @@
       <nav class="product-tabs" aria-label="Applications">
         <button class="product-tab active" type="button" data-product-tab="kiln" aria-selected="true">Kiln</button>
         <button class="product-tab" type="button" data-product-tab="rollcall" aria-selected="false">Rollcall</button>
+        <button class="product-tab" type="button" data-product-tab="quire" aria-selected="false">Quire</button>
       </nav>
       <a class="text-link" data-current-github href="https://github.com/hgus107/kiln" target="_blank" rel="noreferrer">
         View On GitHub <span aria-hidden="true">↗</span>
@@ -84,6 +85,64 @@
           <li><span>3</span><div><strong>Open And Convert</strong><p>Drop in your images, choose your settings, then convert.</p></div></li>
         </ol>
         <a class="button button-primary install-button" href="https://github.com/hgus107/kiln/releases/latest/download/Kiln_0.1.2_arm64.dmg">Download Kiln Free</a>
+      </section>
+    </main>
+
+    <main data-product-panel="quire" hidden>
+      <section class="hero section-shell">
+        <div class="hero-copy">
+          <p class="eyebrow">Everything PDF &amp; Free</p>
+          <h1>Your PDF Toolkit. Kept Local.</h1>
+          <p class="hero-text">Convert documents, extract text, merge, split, rotate, compress, and OCR PDFs. Everything stays on your Mac.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://github.com/hgus107/quire/releases/latest/download/Quire_0.1.0_arm64.dmg">Download For Apple Silicon</a>
+            <span class="download-note">Free · macOS 12+ · Version 0.1.0</span>
+          </div>
+        </div>
+
+        <div class="app-preview quire-preview" aria-label="Quire Application Preview">
+          <div class="window-bar quire-window-bar">
+            <div class="traffic-lights" aria-hidden="true"><span></span><span></span><span></span></div>
+            <span class="window-title">Quire</span>
+          </div>
+          <div class="quire-app">
+            <div class="quire-app-header"><span class="mini-brand"><b>Q</b><span>Quire<small>Everything PDF &amp; Free.</small></span></span><span>● Local Only</span></div>
+            <div class="quire-content">
+              <div class="quire-controls"><span><small>Function</small><strong>Compress PDF</strong></span><span><small>Output Type</small><strong>Standard</strong></span></div>
+              <div class="quire-drop"><span class="quire-pages" aria-hidden="true"><i></i><i></i><i></i></span><span><strong>Drop Files or a Folder</strong><small>DOC, DOCX, HTML, MD, ODT, PDF, RTF, or TXT</small></span><b>Import Files</b></div>
+              <div class="quire-table">
+                <div class="quire-row quire-head"><span>TYPE</span><span>FILE</span><span>SIZE (ORG/NEW)</span><span>STATUS</span></div>
+                <div class="quire-row"><span><i>PDF</i></span><span>report.pdf</span><span>5.7 MB / 2.1 MB</span><span><b>Converted</b></span></div>
+                <div class="quire-row"><span><i>PDF</i></span><span>notes.pdf</span><span>1.8 MB / 740 KB</span><span><b>Converted</b></span></div>
+              </div>
+              <div class="quire-actions"><span><b>Clear</b><b>Remove Selected (0)</b></span><span><b>Convert</b><b>Save</b></span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits section-shell" aria-labelledby="quire-benefits-title">
+        <div class="section-heading"><p class="eyebrow">Built For Every PDF</p><h2 id="quire-benefits-title">One Local Workspace. No Uploads.</h2></div>
+        <div class="card-grid">
+          <article class="feature-card"><h3>Private</h3><p>Your files stay on your Mac. Quire does not upload your documents.</p></article>
+          <article class="feature-card"><h3>Complete</h3><p>Handle everyday PDF conversion, extraction, organization, compression, and OCR in one app.</p></article>
+          <article class="feature-card"><h3>Originals Stay Put</h3><p>Quire creates new output files without changing your source documents.</p></article>
+        </div>
+      </section>
+
+      <section class="formats section-shell" aria-labelledby="quire-functions-title">
+        <div><p class="eyebrow">PDF Functions</p><h2 id="quire-functions-title">The Tools You Actually Need.</h2></div>
+        <div class="format-list quire-functions" aria-label="PDF Functions"><span>Convert to PDF</span><span>Extract Text</span><span>Merge PDF</span><span>Split PDF</span><span>Rotate PDF</span><span>Compress PDF</span><span>OCR PDF</span></div>
+      </section>
+
+      <section class="install section-shell" aria-labelledby="quire-install-title">
+        <div class="section-heading"><p class="eyebrow">Three Simple Steps</p><h2 id="quire-install-title">From Source File to Finished PDF.</h2></div>
+        <ol class="install-list">
+          <li><span>1</span><div><strong>Download Quire</strong><p>Get the signed and notarized Apple Silicon installer.</p></div></li>
+          <li><span>2</span><div><strong>Move to Applications</strong><p>Open the DMG, then drag Quire into your Applications folder.</p></div></li>
+          <li><span>3</span><div><strong>Choose, Convert, and Save</strong><p>Select a function, import your files, and save the finished output.</p></div></li>
+        </ol>
+        <a class="button button-primary install-button" href="https://github.com/hgus107/quire/releases/latest/download/Quire_0.1.0_arm64.dmg">Download Quire Free</a>
       </section>
     </main>
 
@@ -155,6 +214,6 @@
       </nav>
     </footer>
 
-    <script src="./site.js" defer></script>
+    <script src="./site.js?v=20260829-1" defer></script>
   </body>
 </html>

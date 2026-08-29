@@ -15,11 +15,19 @@ const products = {
     github: "https://github.com/hgus107/rollcall",
     version: "Version 0.1.2 · macOS 12+",
   },
+  quire: {
+    name: "Quire",
+    mark: "Q",
+    title: "Quire — Everything PDF & Free",
+    description: "Convert, extract, merge, split, rotate, compress, and OCR PDFs locally on your Mac.",
+    github: "https://github.com/hgus107/quire",
+    version: "Version 0.1.0 · macOS 12+",
+  },
 };
 
 function setProduct(productName, updateHistory = true) {
-  const product = products[productName] ?? products.kiln;
-  const selectedName = product === products.rollcall ? "rollcall" : "kiln";
+  const selectedName = Object.prototype.hasOwnProperty.call(products, productName) ? productName : "kiln";
+  const product = products[selectedName];
   document.body.dataset.product = selectedName;
   document.title = product.title;
   document.querySelector("#meta-description").setAttribute("content", product.description);
