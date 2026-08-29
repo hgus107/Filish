@@ -40,8 +40,8 @@ body[data-product="rollcall"] {
 }
 
 body[data-product="quire"] {
-  --orange: #55a8d8;
-  --orange-hover: #70b9e2;
+  --orange: #1d4ed8;
+  --orange-hover: #1e40af;
   background:
     radial-gradient(circle at 72% 13%, rgba(64, 165, 184, 0.17), transparent 25rem),
     var(--background);
@@ -580,9 +580,15 @@ body[data-product="rollcall"] .hero-text {
 .quire-head {
   min-height: 35px;
   border-top: 0;
-  background: #e3f3fa;
-  color: #101b18;
+  background: #ea580c;
+  color: #ffffff;
   font-size: 9px;
+}
+
+.quire-actions b {
+  border-color: #ea580c;
+  color: #ffffff;
+  background: #ea580c;
 }
 
 .quire-row i,
