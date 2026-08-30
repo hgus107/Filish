@@ -2,7 +2,7 @@
 
 Raw in, finished out. Your photos never leave the machine.
 
-Website: [https://hgus107.github.io/Filish/?app=kiln](https://hgus107.github.io/Filish/?app=kiln)
+Website: [https://hgus107.github.io/YoFile/suite.html?app=kiln](https://hgus107.github.io/YoFile/suite.html?app=kiln)
 
 The shared website opens on Kiln by default and includes Rollcall as its second app tab.
 

@@ -2,7 +2,7 @@
 
 Everything PDF & Free.
 
-Website: [https://hgus107.github.io/Filish/?app=quire](https://hgus107.github.io/Filish/?app=quire)
+Website: [https://hgus107.github.io/YoFile/suite.html?app=quire](https://hgus107.github.io/YoFile/suite.html?app=quire)
 
 Current release: **v0.1.1**
 
