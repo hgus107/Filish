@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Rollcall</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="backdrop" class="backdrop" hidden></div>
+
+    <section id="notice" class="dialog" role="dialog" aria-modal="true" aria-labelledby="notice-title" hidden>
+      <button id="notice-close" class="icon-button dialog-close" type="button" aria-label="Close">×</button>
+      <p id="notice-kicker" class="dialog-kicker">Rollcall</p>
+      <h2 id="notice-title"></h2>
+      <p id="notice-body" class="dialog-body"></p>
+      <div class="dialog-actions">
+        <button id="notice-ok" class="button primary" type="button">OK</button>
+      </div>
+    </section>
+
+    <section id="confirm" class="dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title" hidden>
+      <h2 id="confirm-title">Confirmation</h2>
+      <p id="confirm-body" class="dialog-body"></p>
+      <label class="destination-field">
+        <span>Save To</span>
+        <span class="destination-row">
+          <input id="destination" type="text" autocomplete="off" spellcheck="false" placeholder="Type Or Choose A Folder Path" />
+          <button id="change-folder" class="button secondary" type="button">Change Folder</button>
+        </span>
+      </label>
+      <div class="dialog-actions">
+        <button id="confirm-cancel" class="button secondary" type="button">Cancel</button>
+        <button id="confirm-apply" class="button primary" type="button" disabled>Yes</button>
+      </div>
+    </section>
+
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">R</span>
+          <span class="brand-copy">
+            <span>Rollcall</span>
+            <span class="brand-tagline">Bulk Rename</span>
+          </span>
+        </div>
+        <span class="local-status"><span class="status-dot" aria-hidden="true"></span><span id="status-label">Local Only</span></span>
+      </header>
+
+      <div class="workspace">
+        <main class="preview-panel">
+          <section id="drop" class="drop-zone">
+            <div class="drop-art" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="drop-copy">
+              <h3>Add Files Or Folder</h3>
+              <p>Pick A File Or Folder</p>
+            </div>
+            <div class="drop-actions">
+              <button id="choose-files" class="button secondary" type="button">Choose Files</button>
+              <button id="choose-folder" class="button primary" type="button">Choose Folder</button>
+            </div>
+          </section>
+
+          <section class="function-bar" aria-label="Rename Function">
+            <label class="field function-select-field">
+              <span>Rename Function</span>
+              <select id="rename-function" required>
+                <option value="" selected disabled>Choose A Function</option>
+                <option value="add-text">Add Text</option>
+                <option value="replace-text">Replace Text</option>
+                <option value="change-case">Change Case</option>
+                <option value="add-numbers">Add Numbers</option>
+                <option value="add-date">Add Date</option>
+              </select>
+            </label>
+
+            <div class="function-settings">
+              <div id="add-text-settings" class="function-panel">
+                <label class="field compact">
+                  <span>At Beginning</span>
+                  <input id="prefix" type="text" autocomplete="off" spellcheck="false" placeholder="Optional" />
+                </label>
+                <label class="field compact">
+                  <span>At End</span>
+                  <input id="suffix" type="text" autocomplete="off" spellcheck="false" placeholder="Optional" />
+                </label>
+              </div>
+
+              <div id="replace-text-settings" class="function-panel" hidden>
+                <label class="field compact">
+                  <span>Find</span>
+                  <input id="find" type="text" autocomplete="off" spellcheck="false" placeholder="Text To Find" />
+                </label>
+                <label class="field compact">
+                  <span>Replace With</span>
+                  <input id="replace" type="text" autocomplete="off" spellcheck="false" placeholder="Leave Empty To Remove" />
+                </label>
+              </div>
+
+              <div id="change-case-settings" class="function-panel" hidden>
+                <label class="field compact">
+                  <span>Letter Case</span>
+                  <select id="case-style" required>
+                    <option value="" selected disabled>Select A Case</option>
+                    <option value="lower">Lowercase</option>
+                    <option value="upper">Uppercase</option>
+                    <option value="title">Title Case</option>
+                  </select>
+                </label>
+              </div>
+
+              <div id="add-numbers-settings" class="function-panel" hidden>
+                <label class="field compact">
+                  <span>Position</span>
+                  <select id="number-position" required>
+                    <option value="" selected disabled>Select A Position</option>
+                    <option value="beginning">At Beginning</option>
+                    <option value="end">At End</option>
+                  </select>
+                </label>
+                <label class="field compact">
+                  <span>Start At</span>
+                  <input id="counter-start" type="number" min="0" max="999999" value="1" />
+                </label>
+                <label class="field compact">
+                  <span>Digits</span>
+                  <select id="counter-padding">
+                    <option value="1">1</option>
+                    <option value="2">01</option>
+                    <option value="3" selected>001</option>
+                  </select>
+                </label>
+              </div>
+
+              <div id="add-date-settings" class="function-panel" hidden>
+                <label class="field compact">
+                  <span>Position</span>
+                  <select id="date-position" required>
+                    <option value="" selected disabled>Select A Position</option>
+                    <option value="beginning">At Beginning</option>
+                    <option value="end">At End</option>
+                  </select>
+                </label>
+                <label class="field compact">
+                  <span>Date Source</span>
+                  <select id="date-source" required>
+                    <option value="" selected disabled>Which Date</option>
+                    <option value="modified">Date Modified</option>
+                    <option value="today">Today</option>
+                    <option value="custom">Custom Date</option>
+                  </select>
+                </label>
+                <label id="custom-date-field" class="field compact" hidden>
+                  <span>Custom Date</span>
+                  <input id="custom-date" type="date" />
+                </label>
+                <label class="field compact">
+                  <span>Date Format</span>
+                  <select id="date-format" required>
+                    <option value="" selected disabled>Choose A Format</option>
+                    <option value="yyyy-mm-dd">YYYY-MM-DD</option>
+                    <option value="mm-dd-yyyy">MM-DD-YYYY</option>
+                    <option value="dd-mm-yyyy">DD-MM-YYYY</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section class="table-wrap" aria-live="polite" tabindex="0" aria-label="File Queue">
+            <table>
+              <colgroup>
+                <col class="col-original" />
+                <col class="col-arrow" />
+                <col class="col-new" />
+                <col class="col-status" />
+                <col class="col-remove" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th aria-sort="none">
+                    <button class="sort-button" type="button" data-sort="original" aria-label="Sort By Original Name">
+                      <span>Original Name</span><span class="sort-icon" aria-hidden="true">⇅</span>
+                    </button>
+                  </th>
+                  <th><span class="sr-only">Becomes</span></th>
+                  <th aria-sort="none">
+                    <button class="sort-button" type="button" data-sort="new" aria-label="Sort By New Name">
+                      <span>New Name</span><span class="sort-icon" aria-hidden="true">⇅</span>
+                    </button>
+                  </th>
+                  <th>Status</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              <tbody id="rows"></tbody>
+            </table>
+            <div id="empty" class="empty-state">
+              <span class="empty-icon" aria-hidden="true">Aa</span>
+              <h3>No Files Yet</h3>
+              <p>Add Files Or A Folder To Preview Every New Name.</p>
+            </div>
+          </section>
+
+          <footer class="action-bar">
+            <span id="rule-error" class="rule-error" role="alert"></span>
+            <div class="footer-actions">
+              <button id="remove-selected" class="button secondary" type="button" disabled>Remove Selected (0)</button>
+              <button id="clear" class="button secondary" type="button" disabled>Clear</button>
+              <button id="rename" class="button primary rename-button" type="button" disabled>Save As</button>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <script type="module" src="/src/bootstrap.ts"></script>
+  </body>
+</html>

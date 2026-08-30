@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>Quire</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">Q</span>
+          <span class="brand-copy">
+            <strong>Quire</strong>
+            <span>Everything PDF &amp; Free.</span>
+          </span>
+        </div>
+        <span class="local-status"><span class="status-dot" aria-hidden="true"></span>Local Only</span>
+      </header>
+
+      <main class="workspace">
+        <section class="task-controls" aria-label="PDF Task">
+          <label class="field function-field">
+            <span>Function</span>
+            <select id="task-function" required>
+              <option value="" selected disabled>Choose a Function</option>
+              <option value="compress">Compress PDF</option>
+              <option value="to-pdf">Convert to PDF</option>
+              <option value="extract">Extract PDF to Markdown or Text</option>
+              <option value="ocr">Make Scanned PDF Searchable</option>
+              <option value="merge">Merge PDFs</option>
+              <option value="rotate">Rotate PDF</option>
+              <option value="split">Split PDF</option>
+            </select>
+          </label>
+
+          <label id="output-field" class="field output-field">
+            <span>Output Type</span>
+            <select id="output-type" required disabled>
+              <option value="" selected disabled>Choose a Type</option>
+            </select>
+          </label>
+
+          <div id="detail-controls" class="detail-controls" aria-label="Task Options" hidden>
+            <label id="page-ranges-field" class="field" hidden>
+              <span>Page Ranges</span>
+              <input id="page-ranges" type="text" autocomplete="off" spellcheck="false" placeholder="Example: 1-3, 5, 8-10" />
+            </label>
+            <div id="rotate-pages-field" class="field" hidden>
+              <span>Pages to Rotate</span>
+              <div class="rotate-pages-control">
+                <span id="rotate-pages-static">All Pages</span>
+                <span id="rotate-pages-prompt" hidden>Enter Page Number:</span>
+                <input id="rotate-pages" type="text" autocomplete="off" spellcheck="false" inputmode="numeric" hidden />
+                <select id="rotate-pages-mode" aria-label="Pages to Rotate">
+                  <option value="all" selected>All Pages</option>
+                  <option value="single">Single Page</option>
+                  <option value="range">Page Range</option>
+                </select>
+                <span class="rotate-pages-arrow" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="drop-zone" class="drop-zone" aria-label="Import Files">
+          <div class="document-stack" aria-hidden="true">
+            <span class="stack-page stack-page-back"></span>
+            <span class="stack-page stack-page-middle"></span>
+            <span class="stack-page stack-page-front"></span>
+          </div>
+          <div class="drop-copy">
+            <h1>Drop Files or a Folder</h1>
+            <p>DOC, DOCX, HTML, MD, ODT, PDF, RTF, or TXT</p>
+          </div>
+          <button id="import-files" class="button secondary import-button" type="button">Import Files</button>
+          <input id="browser-file-input" type="file" multiple hidden />
+        </section>
+
+        <section class="queue-section" aria-label="File Queue">
+          <div id="queue-frame" class="queue-frame" tabindex="0" aria-label="File Queue">
+            <table role="grid" aria-multiselectable="true">
+              <thead>
+                <tr>
+                  <th class="type-column" scope="col">Type</th>
+                  <th scope="col">File</th>
+                  <th class="size-column" scope="col">Size (Org/New)</th>
+                  <th class="status-column" scope="col">Status</th>
+                  <th class="remove-column" scope="col">Remove</th>
+                </tr>
+              </thead>
+              <tbody id="file-rows"></tbody>
+            </table>
+            <div id="empty-queue" class="empty-queue" aria-label="Empty Queue"></div>
+          </div>
+        </section>
+
+        <footer class="action-bar">
+          <div class="action-group">
+            <span class="tooltip-anchor" data-tooltip="Clear removes all files from the queue.">
+              <button id="clear" class="button secondary" type="button" title="Clear removes all files from the queue." disabled>Clear</button>
+            </span>
+            <span class="tooltip-anchor" data-tooltip="Remove Selected removes only the selected files.">
+              <button id="remove-selected" class="button secondary remove-selected" type="button" title="Remove Selected removes only the selected files." disabled>Remove Selected (0)</button>
+            </span>
+          </div>
+          <div class="action-group">
+            <button id="convert" class="button primary" type="button" disabled>Apply</button>
+            <button id="save" class="button primary" type="button" disabled>Save</button>
+          </div>
+        </footer>
+
+        <div id="notice" class="notice" role="dialog" aria-modal="false" aria-labelledby="notice-title" aria-describedby="notice-copy" hidden>
+          <div id="notice-handle" class="notice-handle">
+            <strong id="notice-title">Message</strong>
+            <button id="dismiss-notice" type="button" aria-label="Dismiss Message">×</button>
+          </div>
+          <div id="notice-copy" class="notice-copy" aria-live="polite"></div>
+          <div id="notice-actions" class="notice-actions" hidden>
+            <button id="notice-cancel" class="button secondary" type="button">Cancel</button>
+            <button id="notice-confirm" class="button primary" type="button">Continue</button>
+          </div>
+        </div>
+
+        <div id="save-modal-backdrop" class="save-modal-backdrop" aria-hidden="true" hidden></div>
+        <div id="save-dialog" class="notice save-dialog" role="dialog" aria-modal="true" aria-labelledby="save-title" hidden>
+          <div class="notice-handle">
+            <strong id="save-title">Save Output Files</strong>
+            <button id="dismiss-save" type="button" aria-label="Close Save">×</button>
+          </div>
+          <div class="save-copy">
+            <p id="save-summary"></p>
+            <label class="save-destination">
+              <span id="save-destination-label">Save To</span>
+              <span class="save-destination-row">
+                <input id="save-destination" type="text" autocomplete="off" spellcheck="false" placeholder="Type or Choose a Folder Path" />
+                <button id="change-save-folder" class="button secondary" type="button">Select Folder</button>
+              </span>
+            </label>
+            <p id="save-conflict" class="save-conflict" role="alert" hidden></p>
+          </div>
+          <div class="notice-actions">
+            <button id="cancel-save" class="button secondary" type="button">Cancel</button>
+            <button id="overwrite-save" class="button secondary" type="button" hidden>Overwrite</button>
+            <button id="apply-save" class="button primary" type="button" disabled>Save</button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="/src/bootstrap.ts"></script>
+  </body>
+</html>

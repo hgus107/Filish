@@ -1,0 +1,3 @@
+Quire Native Test
+
+This file verifies native TXT-to-PDF conversion and saving.

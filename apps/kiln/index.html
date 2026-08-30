@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiln</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+
+  <body>
+    <div id="backdrop" class="backdrop" hidden></div>
+
+    <div id="notice" class="toast" role="dialog" aria-modal="true" hidden>
+      <button id="notice-close" class="toast-close" type="button" aria-label="Close">×</button>
+      <p id="notice-title" class="toast-title"></p>
+      <div id="notice-body" class="toast-body"></div>
+    </div>
+
+    <div id="save-dialog" class="toast" role="dialog" aria-modal="true" hidden>
+      <button id="save-close" class="toast-close" type="button" aria-label="Close">×</button>
+      <p id="save-title" class="toast-title"></p>
+      <label id="save-name-field" class="save-field">
+        <span>File Name</span>
+        <div class="save-name-row">
+          <input id="save-name" type="text" />
+          <span id="save-ext" class="save-ext"></span>
+        </div>
+      </label>
+      <p id="save-loc-label" class="save-loc-label">Save To</p>
+      <div class="save-destination-actions" role="group" aria-label="Save Destination">
+        <button id="save-change" type="button" class="primary compact-action">Choose Folder</button>
+      </div>
+      <div class="save-loc">
+        <input id="save-location" class="save-locbox" type="text" autocomplete="off" aria-label="Target Folder Path" />
+      </div>
+      <div class="save-actions">
+        <button id="save-cancel" type="button" class="primary compact-action">Cancel</button>
+        <button id="save-confirm" type="button" class="primary compact-action">Save</button>
+      </div>
+    </div>
+
+    <div id="confirm" class="toast" role="dialog" aria-modal="true" hidden>
+      <button id="confirm-close" class="toast-close" type="button" aria-label="Close">×</button>
+      <p id="confirm-title" class="toast-title"></p>
+      <p id="confirm-line" class="toast-line"></p>
+      <div class="save-actions">
+        <button id="confirm-cancel" type="button" class="primary compact-action">Cancel</button>
+        <button id="confirm-replace" type="button" class="primary compact-action">Overwrite</button>
+        <button id="confirm-keep" type="button" class="primary compact-action">Keep Both</button>
+      </div>
+    </div>
+
+    <div id="discard-dialog" class="toast" role="dialog" aria-modal="true" hidden>
+      <p class="toast-title">Discard Unsaved Converted Files?</p>
+      <div class="save-actions">
+        <button id="discard-cancel" type="button" class="primary compact-action">Cancel</button>
+        <button id="discard-confirm" type="button" class="primary compact-action">Discard Files</button>
+      </div>
+    </div>
+
+    <div id="discard-row-dialog" class="toast" role="dialog" aria-modal="true" hidden>
+      <p class="toast-title">Discard This Unsaved Converted File?</p>
+      <div class="save-actions">
+        <button id="discard-row-cancel" type="button" class="primary compact-action">Cancel</button>
+        <button id="discard-row-confirm" type="button" class="primary compact-action">Discard File</button>
+      </div>
+    </div>
+
+    <div id="discard-selected-dialog" class="toast" role="dialog" aria-modal="true" hidden>
+      <p class="toast-title">Discard Selected Unsaved Converted Files?</p>
+      <div class="save-actions">
+        <button id="discard-selected-cancel" type="button" class="primary compact-action">Cancel</button>
+        <button id="discard-selected-confirm" type="button" class="primary compact-action">Discard Files</button>
+      </div>
+    </div>
+
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">K</span>
+          <span>Kiln</span>
+        </div>
+        <span class="local-status"><span aria-hidden="true">✓</span> Local Processing</span>
+      </header>
+
+      <div class="workspace">
+        <aside class="settings-panel" aria-label="Output Settings">
+          <h1>Output Settings</h1>
+
+          <label id="format-field" class="field">
+            <span>Format</span>
+            <select id="format">
+              <option value="" disabled selected>Select A Type</option>
+              <option value="jpeg">JPEG</option>
+              <option value="png">PNG</option>
+              <option value="webp">WebP</option>
+              <option value="avif">AVIF</option>
+              <option value="heic">HEIC</option>
+              <option value="tiff">TIFF</option>
+            </select>
+          </label>
+
+          <div id="resize-group" class="dimension-fields">
+            <label id="orig-field" class="field">
+              <span>Current Dimension</span>
+              <select id="orig-dim">
+                <option value="" disabled selected>—</option>
+              </select>
+            </label>
+
+            <label id="new-pixel-field" class="field">
+              <span>New Dimension</span>
+              <input
+                id="new-pixel"
+                type="text"
+                inputmode="numeric"
+                maxlength="11"
+                autocomplete="off"
+                placeholder="1024 * 7680"
+                aria-describedby="pixel-hint"
+              />
+            </label>
+          </div>
+          <small id="pixel-hint" class="pixel-hint">Min 1024 px · Max 7680 px</small>
+
+          <label id="quality-field" class="field quality-field">
+            <span>Compression Quality <output id="quality-value">80</output></span>
+            <input id="quality" type="range" min="40" max="100" value="80" />
+          </label>
+
+          <div class="toggles">
+            <label id="metadata-field" class="checkbox">
+              <input id="keep-metadata" type="checkbox" />
+              <span>Keep Metadata</span>
+            </label>
+
+            <label id="timestamp-field" class="checkbox">
+              <input id="timestamp" type="checkbox" />
+              <span>Add Timestamp To Filename</span>
+            </label>
+          </div>
+        </aside>
+
+        <main class="queue-panel">
+          <div class="queue-heading">
+            <div>
+              <h2>Image Queue</h2>
+            </div>
+            <div class="queue-actions">
+              <button id="remove-selected" type="button" class="primary compact-action" hidden>Remove Selected (0)</button>
+              <button id="clear" type="button" class="primary compact-action" disabled>Clear All</button>
+            </div>
+          </div>
+
+          <section id="drop" class="drop">
+            <div class="drop-copy">
+              <p class="drop-title">Drop Images Here</p>
+              <p class="drop-note">File Types Supported: HEIC · AVIF · WebP · JPEG · PNG · TIFF</p>
+            </div>
+            <button id="browse" type="button" class="primary">Choose Files</button>
+          </section>
+
+          <section class="queue">
+            <table>
+              <colgroup>
+                <col class="queue-col-file" />
+                <col class="queue-col-size" />
+                <col class="queue-col-result" />
+                <col class="queue-col-remove" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>File</th>
+                  <th>Size Curr/New</th>
+                  <th>Result</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              <tbody id="rows"></tbody>
+            </table>
+            <p id="empty" class="empty">Nothing Queued Yet</p>
+          </section>
+
+          <footer>
+            <span id="summary"></span>
+            <span class="spacer"></span>
+            <button id="convert" type="button" class="primary main-action" disabled>Convert</button>
+            <button id="save" type="button" class="primary main-action" disabled>Save</button>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <script type="module" src="/src/bootstrap.ts"></script>
+  </body>
+</html>
