@@ -3,218 +3,119 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta id="meta-description" name="description" content="Kiln converts images privately and locally on your Mac. Fast, offline, and free." />
+    <meta name="description" content="YoFile is one local app for converting images, bulk renaming files, and working with PDFs on your Mac. Private, offline, and free." />
     <meta name="theme-color" content="#090909" />
-    <meta id="og-title" property="og:title" content="Kiln — Convert Images Locally" />
-    <meta id="og-description" property="og:description" content="A fast and private image converter for Mac. No uploads, no subscription, no limits." />
+    <meta property="og:title" content="YoFile — Your File Toolkit, Kept Local" />
+    <meta property="og:description" content="Convert images, rename files, and handle PDFs in one app. Nothing leaves your Mac." />
     <meta property="og:type" content="website" />
-    <title>Kiln — Convert Images Locally</title>
-    <link rel="stylesheet" href="./styles.css?v=20260829-3" />
+    <title>YoFile — Your File Toolkit, Kept Local</title>
+    <style>
+      :root {
+        --violet: #6d5cf5;
+        --violet-strong: #5a49e0;
+        --bg: #090909;
+        --surface: #141414;
+        --line: #262626;
+        --text: #f7f7f5;
+        --muted: #9b9b96;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        min-width: 320px;
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 74% 10%, rgba(109, 92, 245, 0.16), transparent 26rem),
+          var(--bg);
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: inherit; text-decoration: none; }
+      .wrap { width: min(1100px, calc(100% - 48px)); margin-inline: auto; }
+      .topbar {
+        display: flex; align-items: center; gap: 24px;
+        min-height: 76px; border-bottom: 1px solid var(--line);
+      }
+      .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 600; font-size: 19px; }
+      .brand-mark {
+        display: grid; place-items: center; width: 38px; height: 38px;
+        border-radius: 10px; background: var(--violet); color: #fff; font-size: 20px; font-weight: 600;
+      }
+      .topbar .github { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; color: #fff; font-weight: 500; }
+      .github svg { width: 26px; height: 26px; fill: currentColor; }
+      .hero { text-align: center; padding: 92px 0 80px; }
+      .eyebrow { margin: 0 0 18px; color: var(--violet); font-size: 15px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+      h1 { margin: 0 0 22px; font-size: clamp(48px, 8vw, 96px); line-height: 0.96; letter-spacing: -0.05em; }
+      .lede { max-width: 640px; margin: 0 auto; color: #c2c2bd; font-size: clamp(17px, 2vw, 21px); line-height: 1.6; }
+      .cta { margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+      .download {
+        display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px;
+        border-radius: 14px; background: var(--violet); color: #fff; font-size: 15px; font-weight: 600;
+        transition: background 140ms ease, transform 140ms ease;
+      }
+      .download:hover { background: var(--violet-strong); transform: translateY(-2px); }
+      .note { color: var(--muted); font-size: 13px; }
+      .tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 8px 0 96px; }
+      .tool {
+        border: 1px solid var(--line); border-radius: 16px; background: var(--surface); padding: 24px 22px;
+      }
+      .tool .ic { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 11px; background: rgba(109,92,245,0.14); color: var(--violet); font-size: 20px; margin-bottom: 14px; }
+      .tool h3 { margin: 0 0 6px; font-size: 17px; }
+      .tool p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+      .steps { border-top: 1px solid var(--line); padding: 64px 0 40px; }
+      .steps h2 { margin: 0 0 28px; font-size: clamp(26px, 4vw, 38px); letter-spacing: -0.03em; }
+      .steps ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 0; padding: 0; list-style: none; }
+      .steps li { display: flex; gap: 12px; }
+      .steps .n { display: grid; place-items: center; width: 26px; height: 26px; flex: none; border-radius: 50%; background: var(--violet); color: #fff; font-size: 13px; font-weight: 600; }
+      .steps strong { display: block; margin-bottom: 2px; }
+      .steps p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+      footer { border-top: 1px solid var(--line); padding: 26px 0 60px; color: var(--muted); font-size: 13px; display: flex; gap: 18px; align-items: center; }
+      footer a { color: var(--muted); }
+      footer a:hover { color: var(--text); }
+      @media (max-width: 720px) { .tools, .steps ol { grid-template-columns: 1fr; } }
+    </style>
   </head>
-  <body data-product="kiln">
-    <header class="topbar">
-      <a class="brand" href="./" aria-label="Local Mac Apps Home">
-        <span class="brand-mark" data-current-mark aria-hidden="true">K</span>
-        <span data-current-name>Kiln</span>
-      </a>
-      <nav class="product-tabs" aria-label="Applications">
-        <button class="product-tab active" type="button" data-product-tab="kiln" aria-selected="true">Kiln</button>
-        <button class="product-tab" type="button" data-product-tab="rollcall" aria-selected="false">Rollcall</button>
-        <button class="product-tab" type="button" data-product-tab="quire" aria-selected="false">Quire</button>
-      </nav>
-      <a class="text-link github-link" data-current-github href="https://github.com/hgus107/kiln" target="_blank" rel="noreferrer">
-        <svg class="github-mark" viewBox="0 0 16 16" width="38" height="38" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-        <span>View On GitHub <span aria-hidden="true">↗</span></span>
+  <body>
+    <header class="topbar wrap">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">Y</span>YoFile</a>
+      <a class="github" href="https://github.com/hgus107/YoFile" target="_blank" rel="noreferrer">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        View On GitHub
       </a>
     </header>
 
-    <main id="top" data-product-panel="kiln">
-      <section class="hero section-shell">
-        <div class="hero-copy">
-          <p class="eyebrow">Private By Design</p>
-          <h1>Convert Images Locally.</h1>
-          <p class="hero-text">Your pictures never leave your computer. Fast and private image conversion for Mac. No uploads, no subscription, no artificial limits.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="https://github.com/hgus107/kiln/releases/latest/download/Kiln_0.1.2_arm64.dmg">Download For Apple Silicon</a>
-            <span class="download-note">Free · macOS 13+ · Version 0.1.2</span>
-          </div>
-        </div>
-
-        <div class="app-preview" aria-label="Kiln Application Preview">
-          <div class="window-bar">
-            <div class="traffic-lights" aria-hidden="true"><span></span><span></span><span></span></div>
-            <span class="window-title">Kiln</span>
-          </div>
-          <div class="preview-body">
-            <aside class="preview-settings">
-              <p class="preview-label">Output Settings</p>
-              <div class="preview-field"><span>Format</span><strong>JPEG</strong></div>
-              <div class="preview-field"><span>New Dimension</span><strong>2048 * 2048</strong></div>
-              <div class="preview-field"><span>Compression Quality</span><strong>85</strong></div>
-            </aside>
-            <div class="preview-queue">
-              <div class="queue-heading"><strong>Image Queue</strong><span>3 Images</span></div>
-              <div class="drop-zone"><span class="drop-icon">+</span><span><strong>Drop Images Here</strong><small>HEIC · AVIF · WebP · JPEG · PNG · TIFF</small></span></div>
-              <div class="queue-row queue-header"><span>File</span><span>Size Curr/New</span><span>Result</span></div>
-              <div class="queue-row"><span>mountain.heic</span><span>4.8 MB / 1.2 MB</span><span class="status">Converted</span></div>
-              <div class="queue-row"><span>portrait.png</span><span>3.1 MB / 840 KB</span><span class="status">Converted</span></div>
-              <div class="preview-actions"><span>2 Converted</span><span><button type="button" tabindex="-1">Convert</button><button type="button" tabindex="-1">Save</button></span></div>
-            </div>
-          </div>
+    <main>
+      <section class="hero wrap">
+        <p class="eyebrow">Convert · Rename · PDF</p>
+        <h1>Your File Toolkit.<br />Kept Local.</h1>
+        <p class="lede">Three everyday file jobs in one app: convert images, bulk rename files, and work with PDFs. Private, No Limits, No Subscriptions and FREE. Runs Locally.</p>
+        <div class="cta">
+          <a class="download" href="https://github.com/hgus107/YoFile/releases/latest/download/YoFile_0.1.0_arm64.dmg">Download For Apple Silicon</a>
+          <span class="note">Free · macOS 12+ · Version 0.1.0</span>
         </div>
       </section>
 
-      <section class="benefits section-shell" aria-labelledby="kiln-benefits-title">
-        <div class="section-heading"><p class="eyebrow">Built For The Job</p><h2 id="kiln-benefits-title">Nothing Between You And Your Images.</h2></div>
-        <div class="card-grid">
-          <article class="feature-card"><h3>Private</h3><p>Every conversion happens locally. Your images are never uploaded.</p></article>
-          <article class="feature-card"><h3>Fast</h3><p>Convert one image or an entire batch without waiting on a server.</p></article>
-          <article class="feature-card"><h3>Offline</h3><p>Install once and use Kiln anywhere, with or without an internet connection.</p></article>
-        </div>
+      <section class="tools wrap">
+        <article class="tool"><div class="ic" aria-hidden="true">↺</div><h3>Convert</h3><p>Images between HEIC, AVIF, WebP, JPEG, PNG, and TIFF, in large local batches.</p></article>
+        <article class="tool"><div class="ic" aria-hidden="true">≡</div><h3>Rename</h3><p>Bulk rename files with a live preview before anything is written.</p></article>
+        <article class="tool"><div class="ic" aria-hidden="true">⎙</div><h3>PDF</h3><p>Convert, extract, merge, split, rotate, compress, and OCR PDFs.</p></article>
       </section>
 
-      <section class="formats section-shell" aria-labelledby="formats-title">
-        <div><p class="eyebrow">Format Support</p><h2 id="formats-title">The Formats You Actually Use.</h2></div>
-        <div class="format-list" aria-label="Supported Image Formats"><span>HEIC</span><span>AVIF</span><span>WebP</span><span>JPEG</span><span>PNG</span><span>TIFF</span></div>
-      </section>
-
-      <section class="install section-shell" aria-labelledby="kiln-install-title">
-        <div class="section-heading"><p class="eyebrow">Three Simple Steps</p><h2 id="kiln-install-title">Ready In Less Than A Minute.</h2></div>
-        <ol class="install-list">
-          <li><span>1</span><div><strong>Download Kiln</strong><p>Get the signed and notarized Apple Silicon installer.</p></div></li>
-          <li><span>2</span><div><strong>Move To Applications</strong><p>Open the DMG, then drag Kiln into your Applications folder.</p></div></li>
-          <li><span>3</span><div><strong>Open And Convert</strong><p>Drop in your images, choose your settings, then convert.</p></div></li>
+      <section class="steps wrap">
+        <h2>One install. Three tools.</h2>
+        <ol>
+          <li><span class="n">1</span><div><strong>Download YoFile</strong><p>Get the signed and notarized Apple Silicon installer.</p></div></li>
+          <li><span class="n">2</span><div><strong>Move to Applications</strong><p>Open the DMG, then drag YoFile into your Applications folder.</p></div></li>
+          <li><span class="n">3</span><div><strong>Pick a tool</strong><p>Open YoFile and choose Convert, Rename, or PDF.</p></div></li>
         </ol>
-        <a class="button button-primary install-button" href="https://github.com/hgus107/kiln/releases/latest/download/Kiln_0.1.2_arm64.dmg">Download Kiln Free</a>
       </section>
     </main>
 
-    <main data-product-panel="quire" hidden>
-      <section class="hero section-shell">
-        <div class="hero-copy">
-          <p class="eyebrow">Everything PDF &amp; Free</p>
-          <h1>Your PDF Toolkit. Kept Local.</h1>
-          <p class="hero-text">PDF processing. Private, No Limits, No Subscriptions and FREE! Convert, Extract, Merge, Split, OCR Readable and more. Runs Locally.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="https://github.com/hgus107/quire/releases/latest/download/Quire_0.1.1_arm64.dmg">Download For Apple Silicon</a>
-            <span class="download-note">Free · macOS 12+ · Version 0.1.1</span>
-          </div>
-        </div>
-
-        <div class="app-preview quire-preview" aria-label="Quire Application Preview">
-          <div class="window-bar quire-window-bar">
-            <div class="traffic-lights" aria-hidden="true"><span></span><span></span><span></span></div>
-            <span class="window-title">Quire</span>
-          </div>
-          <div class="quire-app">
-            <div class="quire-app-header"><span class="mini-brand"><img class="quire-logo-mark" src="./quire-logo.png" alt="Quire" /><span>Quire<small>Everything PDF &amp; Free.</small></span></span><span>● Local Only</span></div>
-            <div class="quire-content">
-              <div class="quire-controls"><span><small>Function</small><strong>Compress PDF</strong></span><span><small>Output Type</small><strong>Standard</strong></span></div>
-              <div class="quire-drop"><span class="quire-pages" aria-hidden="true"><i></i><i></i><i></i></span><span><strong>Drop Files or a Folder</strong><small>DOC, DOCX, HTML, MD, ODT, PDF, RTF, or TXT</small></span><b>Import Files</b></div>
-              <div class="quire-table">
-                <div class="quire-row quire-head"><span>TYPE</span><span>FILE</span><span>SIZE (ORG/NEW)</span><span>STATUS</span></div>
-                <div class="quire-row"><span><i>PDF</i></span><span>report.pdf</span><span>5.7 MB / 2.1 MB</span><span><b>Converted</b></span></div>
-                <div class="quire-row"><span><i>PDF</i></span><span>notes.pdf</span><span>1.8 MB / 740 KB</span><span><b>Converted</b></span></div>
-              </div>
-              <div class="quire-actions"><span><b>Clear</b><b>Remove Selected (0)</b></span><span><b>Apply</b><b>Save</b></span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="benefits section-shell" aria-labelledby="quire-benefits-title">
-        <div class="section-heading"><p class="eyebrow">Built For Every PDF</p><h2 id="quire-benefits-title">One Local Workspace. No Uploads.</h2></div>
-        <div class="card-grid">
-          <article class="feature-card"><h3>Private</h3><p>Your files stay on your Mac. Quire does not upload your documents.</p></article>
-          <article class="feature-card"><h3>Complete</h3><p>Handle everyday PDF conversion, extraction, organization, compression, and OCR in one app.</p></article>
-          <article class="feature-card"><h3>Originals Stay Put</h3><p>Quire creates new output files without changing your source documents.</p></article>
-        </div>
-      </section>
-
-      <section class="formats section-shell" aria-labelledby="quire-functions-title">
-        <div><p class="eyebrow">PDF Functions</p><h2 id="quire-functions-title">The Tools You Actually Need.</h2></div>
-        <div class="format-list quire-functions" aria-label="PDF Functions"><span>Convert to PDF</span><span>Extract Text</span><span>Merge PDF</span><span>Split PDF</span><span>Rotate PDF</span><span>Compress PDF</span><span>OCR PDF</span></div>
-      </section>
-
-      <section class="install section-shell" aria-labelledby="quire-install-title">
-        <div class="section-heading"><p class="eyebrow">Three Simple Steps</p><h2 id="quire-install-title">From Source File to Finished PDF.</h2></div>
-        <ol class="install-list">
-          <li><span>1</span><div><strong>Download Quire</strong><p>Get the signed and notarized Apple Silicon installer.</p></div></li>
-          <li><span>2</span><div><strong>Move to Applications</strong><p>Open the DMG, then drag Quire into your Applications folder.</p></div></li>
-          <li><span>3</span><div><strong>Choose, Convert, and Save</strong><p>Select a function, import your files, and save the finished output.</p></div></li>
-        </ol>
-        <a class="button button-primary install-button" href="https://github.com/hgus107/quire/releases/latest/download/Quire_0.1.1_arm64.dmg">Download Quire Free</a>
-      </section>
-    </main>
-
-    <main data-product-panel="rollcall" hidden>
-      <section class="hero section-shell">
-        <div class="hero-copy">
-          <p class="eyebrow">Preview Every Name</p>
-          <h1>Rename Files In One Pass.</h1>
-          <p class="hero-text">Rename all your files in one go. Five different naming patterns. Fast and interactive.<br />Private, Safe and FREE!</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="https://github.com/hgus107/rollcall/releases/latest/download/Rollcall_0.1.2_arm64.dmg">Download For Apple Silicon</a>
-            <span class="download-note">Free · macOS 12+ · Version 0.1.2</span>
-          </div>
-        </div>
-
-        <div class="app-preview rollcall-preview" aria-label="Rollcall Application Preview">
-          <div class="window-bar">
-            <div class="traffic-lights" aria-hidden="true"><span></span><span></span><span></span></div>
-            <span class="window-title">Rollcall</span>
-          </div>
-          <div class="rollcall-app">
-            <div class="rollcall-app-header"><span class="mini-brand"><b>R</b><span>Rollcall<small>Bulk Rename</small></span></span><span>● Local Only</span></div>
-            <div class="rollcall-content">
-              <div class="rollcall-drop"><span><strong>Add Files Or Folder</strong><small>Pick A File Or Folder</small></span><span><b>Choose Files</b><b>Choose Folder</b></span></div>
-              <div class="rollcall-function"><span><small>Rename Function</small><strong>Add Text</strong></span><span><small>At Beginning</small><strong>Trip-</strong></span><span><small>At End</small><strong>-Final</strong></span></div>
-              <div class="rollcall-table">
-                <div class="rollcall-row rollcall-head"><span>Original Name ↕</span><span>New Name ↕</span><span>Status</span><span>Remove</span></div>
-                <div class="rollcall-row"><span>IMG_1024.JPG</span><span>Trip-IMG_1024-Final.JPG</span><span><i>Ready</i></span><span class="preview-remove">×</span></div>
-                <div class="rollcall-row"><span>IMG_1025.JPG</span><span>Trip-IMG_1025-Final.JPG</span><span><i>Ready</i></span><span class="preview-remove">×</span></div>
-              </div>
-              <div class="rollcall-actions"><b>Save As</b></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="benefits section-shell" aria-labelledby="rollcall-benefits-title">
-        <div class="section-heading"><p class="eyebrow">Safe By Default</p><h2 id="rollcall-benefits-title">Know The Result Before You Save.</h2></div>
-        <div class="card-grid">
-          <article class="feature-card"><h3>Preview First</h3><p>Original Name, New Name, and Status stay together for every file.</p></article>
-          <article class="feature-card"><h3>Originals Stay Put</h3><p>Rollcall writes renamed copies to your chosen folder without changing the source files.</p></article>
-          <article class="feature-card"><h3>Local</h3><p>No files, filenames, or folder paths are sent to an Unknown server.</p></article>
-        </div>
-      </section>
-
-      <section class="formats section-shell" aria-labelledby="functions-title">
-        <div><p class="eyebrow">Five Clear Functions</p><h2 id="functions-title">No Pattern Language Required.</h2></div>
-        <div class="format-list rollcall-functions" aria-label="Rename Functions"><span>Add Text</span><span>Replace Text</span><span>Change Case</span><span>Add Numbers</span><span>Add Date</span></div>
-      </section>
-
-      <section class="install section-shell" aria-labelledby="rollcall-install-title">
-        <div class="section-heading"><p class="eyebrow">Three Simple Steps</p><h2 id="rollcall-install-title">A Large Batch Without The Guesswork.</h2></div>
-        <ol class="install-list">
-          <li><span>1</span><div><strong>Add Files Or A Folder</strong><p>Bring up to 20,000 visible files into one local queue.</p></div></li>
-          <li><span>2</span><div><strong>Choose And Preview</strong><p>Pick a rename function and review every proposed name and warning.</p></div></li>
-          <li><span>3</span><div><strong>Save Renamed Copies</strong><p>Choose or type a destination folder. Your originals remain untouched.</p></div></li>
-        </ol>
-        <a class="button button-primary install-button" href="https://github.com/hgus107/rollcall/releases/latest/download/Rollcall_0.1.2_arm64.dmg">Download Rollcall Free</a>
-      </section>
-    </main>
-
-    <footer class="footer section-shell">
-      <div class="brand footer-brand"><span class="brand-mark" data-current-mark aria-hidden="true">K</span><span data-current-name>Kiln</span></div>
-      <p><span data-current-version>Version 0.1.2 · macOS 13+</span> · Apple Silicon</p>
-      <nav aria-label="Footer Links">
-        <a data-current-github href="https://github.com/hgus107/kiln" target="_blank" rel="noreferrer">Source Code</a>
-        <a data-current-releases href="https://github.com/hgus107/kiln/releases" target="_blank" rel="noreferrer">All Releases</a>
-        <a data-current-license href="https://github.com/hgus107/kiln/blob/main/LICENSE" target="_blank" rel="noreferrer">License</a>
-      </nav>
+    <footer class="wrap">
+      <span>Version 0.1.0 · macOS 12+ · Apple Silicon</span>
+      <a href="https://github.com/hgus107/YoFile">Source</a>
+      <a href="./suite.html">Individual apps</a>
     </footer>
-
-    <script src="./site.js?v=20260829-1" defer></script>
   </body>
 </html>
