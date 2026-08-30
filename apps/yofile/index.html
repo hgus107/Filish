@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YoFile</title>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="brand">
+        <span class="brand-mark" aria-hidden="true">Y</span>
+        <span class="brand-copy">
+          <strong>YoFile</strong>
+          <span>Local file tools. Nothing leaves your Mac.</span>
+        </span>
+        <span class="local-status"><span class="dot" aria-hidden="true"></span>Local Only</span>
+      </header>
+
+      <main class="tools">
+        <button class="tool" type="button" data-tool="convert">
+          <span class="tool-icon">↺</span>
+          <span class="tool-name">Convert</span>
+          <span class="tool-desc">Images to JPEG, PNG, WebP, and more</span>
+        </button>
+        <button class="tool" type="button" data-tool="rename">
+          <span class="tool-icon">≡</span>
+          <span class="tool-name">Rename</span>
+          <span class="tool-desc">Bulk rename files with a live preview</span>
+        </button>
+        <button class="tool" type="button" data-tool="pdf">
+          <span class="tool-icon">⎙</span>
+          <span class="tool-name">PDF</span>
+          <span class="tool-desc">Convert, merge, split, and OCR PDFs</span>
+        </button>
+      </main>
+
+      <p id="status" class="status" role="status"></p>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

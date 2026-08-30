@@ -1,0 +1,145 @@
+:root {
+  --violet: #6d5cf5;
+  --violet-strong: #5a49e0;
+  --ink: #16151f;
+  --paper: #ffffff;
+  --panel: #f5f4fb;
+  --line: #e4e2f2;
+  --muted: #6b6980;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 78% 8%, rgba(109, 92, 245, 0.12), transparent 22rem),
+    #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 34px 28px 40px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 34px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  color: #fff;
+  background: var(--violet);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.brand-copy strong {
+  font-size: 19px;
+}
+
+.brand-copy span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.local-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: auto;
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.local-status .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #35c07a;
+}
+
+.tools {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 22px 20px 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 140ms ease, transform 140ms ease, box-shadow 140ms ease;
+}
+
+.tool:hover {
+  border-color: var(--violet);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(109, 92, 245, 0.16);
+}
+
+.tool-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: var(--panel);
+  color: var(--violet);
+  font-size: 20px;
+}
+
+.tool-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.tool-desc {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.status {
+  min-height: 20px;
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 640px) {
+  .tools {
+    grid-template-columns: 1fr;
+  }
+}
