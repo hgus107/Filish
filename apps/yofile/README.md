@@ -65,4 +65,4 @@ YoFile is a small launcher. Each tool is its own complete, Developer ID signed m
 
 ## License
 
-MIT.
+MIT. Use it, modify it, repost it. All free.

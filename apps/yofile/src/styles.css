@@ -104,10 +104,13 @@ body {
 }
 
 .tool:hover {
-  border-color: var(--violet);
   transform: translateY(-3px);
   box-shadow: 0 14px 34px rgba(109, 92, 245, 0.16);
 }
+
+.tool[data-tool="convert"] { border-color: #ea580c; }
+.tool[data-tool="rename"] { border-color: #1e40af; }
+.tool[data-tool="pdf"] { border-color: #15803d; }
 
 .tool-icon {
   display: grid;
