@@ -4,7 +4,7 @@ Your file toolkit, in one app. Nothing leaves your Mac.
 
 Website: [https://hgus107.github.io/YoFile/](https://hgus107.github.io/YoFile/)
 
-Current release: **v0.1.0**
+Current release: **v0.1.1**
 
 ## Why this exists
 
