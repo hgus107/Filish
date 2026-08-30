@@ -47,7 +47,10 @@
       .hero { text-align: center; padding: 92px 0 80px; }
       .eyebrow { margin: 0 0 18px; color: var(--violet); font-size: 15px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
       h1 { margin: 0 0 22px; font-size: clamp(48px, 8vw, 96px); line-height: 0.96; letter-spacing: -0.05em; }
-      .lede { max-width: 640px; margin: 0 auto; color: #c2c2bd; font-size: clamp(17px, 2vw, 21px); line-height: 1.6; }
+      .lede { max-width: 660px; margin: 0 auto; font-size: clamp(17px, 2vw, 21px); line-height: 1.6; }
+      .lede .l1, .lede .l2 { color: #ffffff; }
+      .lede .l3 { color: #eaeae6; }
+      .lede .l1 { font-weight: 600; }
       .cta { margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
       .download {
         display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px;
@@ -55,21 +58,21 @@
         transition: background 140ms ease, transform 140ms ease;
       }
       .download:hover { background: var(--violet-strong); transform: translateY(-2px); }
-      .note { color: var(--muted); font-size: 13px; }
+      .note { color: var(--muted); font-size: 15px; }
       .tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 8px 0 96px; }
       .tool {
         border: 1px solid var(--line); border-radius: 16px; background: var(--surface); padding: 24px 22px;
       }
       .tool .ic { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 11px; background: rgba(109,92,245,0.14); color: var(--violet); font-size: 20px; margin-bottom: 14px; }
-      .tool h3 { margin: 0 0 6px; font-size: 17px; }
-      .tool p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+      .tool h3 { margin: 0 0 6px; font-size: 19px; }
+      .tool p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
       .steps { border-top: 1px solid var(--line); padding: 64px 0 40px; }
       .steps h2 { margin: 0 0 28px; font-size: clamp(26px, 4vw, 38px); letter-spacing: -0.03em; }
       .steps ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 0; padding: 0; list-style: none; }
       .steps li { display: flex; gap: 12px; }
       .steps .n { display: grid; place-items: center; width: 26px; height: 26px; flex: none; border-radius: 50%; background: var(--violet); color: #fff; font-size: 13px; font-weight: 600; }
-      .steps strong { display: block; margin-bottom: 2px; }
-      .steps p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+      .steps strong { display: block; margin-bottom: 2px; font-size: 17px; }
+      .steps p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
       footer { border-top: 1px solid var(--line); padding: 26px 0 60px; color: var(--muted); font-size: 13px; display: flex; gap: 18px; align-items: center; }
       footer a { color: var(--muted); }
       footer a:hover { color: var(--text); }
@@ -89,7 +92,7 @@
       <section class="hero wrap">
         <p class="eyebrow">Convert · Rename · PDF</p>
         <h1>Your File Toolkit.<br />Kept Local.</h1>
-        <p class="lede">Three everyday file jobs in one app: convert images, bulk rename files, and work with PDFs. Private, No Limits, No Subscriptions and FREE. Runs Locally.</p>
+        <p class="lede"><span class="l1">Every File Made Easy.</span><br /><span class="l2">Convert Images, bulk rename files, and work with PDFs. All Private &amp; No Limits.</span><br /><span class="l3">No Limits, No Subscriptions. Always FREE. Runs Locally.</span></p>
         <div class="cta">
           <a class="download" href="https://github.com/hgus107/YoFile/releases/latest/download/YoFile_0.1.0_arm64.dmg">Download For Apple Silicon</a>
           <span class="note">Free · macOS 12+ · Version 0.1.0</span>
