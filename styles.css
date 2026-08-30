@@ -145,6 +145,19 @@ a {
   transition: color 160ms ease;
 }
 
+.github-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  line-height: 1;
+}
+
+.github-mark {
+  width: 38px;
+  height: 38px;
+}
+
 .text-link:hover,
 .footer a:hover {
   color: var(--text);
