@@ -29,7 +29,7 @@ const products = {
     title: "Voxora — Record Meetings and Browser Audio",
     description: "Record meetings, calls, and browser audio locally on your Mac. No uploads, account, or meeting bot.",
     github: "https://github.com/hgus107/voxora",
-    version: "Version 1.3 · macOS 14+",
+    version: "Version 1.4 · macOS 14+",
   },
 };
 
