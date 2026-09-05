@@ -1167,6 +1167,45 @@ body[data-product="quire"] .formats {
     gap: 10px;
   }
 
+  .product-tabs {
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .product-tab {
+    min-width: 82px;
+    flex: 0 0 auto;
+  }
+
+  .voxora-app {
+    grid-template-rows: auto 1fr 32px;
+  }
+
+  .voxora-header {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .voxora-header > span:first-child,
+  .voxora-header > span:last-child {
+    display: none;
+  }
+
+  .voxora-recorder {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    justify-items: center;
+    padding: 26px 18px;
+  }
+
+  .voxora-wave {
+    width: 100%;
+    text-align: center;
+  }
+
   .topbar > .text-link {
     font-size: 12px;
   }
