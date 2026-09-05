@@ -23,6 +23,14 @@ const products = {
     github: "https://github.com/hgus107/quire",
     version: "Version 0.1.0 · macOS 12+",
   },
+  voxora: {
+    name: "Voxora",
+    mark: "V",
+    title: "Voxora — Record Meetings and Browser Audio",
+    description: "Record meetings, calls, and browser audio locally on your Mac. No uploads, account, or meeting bot.",
+    github: "https://github.com/hgus107/voxora",
+    version: "Version 1.2 · macOS 14+",
+  },
 };
 
 function setProduct(productName, updateHistory = true) {

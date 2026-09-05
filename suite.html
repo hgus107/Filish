@@ -21,6 +21,7 @@
         <button class="product-tab active" type="button" data-product-tab="kiln" aria-selected="true">Kiln</button>
         <button class="product-tab" type="button" data-product-tab="rollcall" aria-selected="false">Rollcall</button>
         <button class="product-tab" type="button" data-product-tab="quire" aria-selected="false">Quire</button>
+        <button class="product-tab" type="button" data-product-tab="voxora" aria-selected="false">Voxora</button>
       </nav>
       <a class="text-link github-link" data-current-github href="https://github.com/hgus107/kiln" target="_blank" rel="noreferrer">
         <svg class="github-mark" viewBox="0 0 16 16" width="38" height="38" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -205,6 +206,56 @@
       </section>
     </main>
 
+    <main data-product-panel="voxora" hidden>
+      <section class="hero section-shell">
+        <div class="hero-copy">
+          <p class="eyebrow">Local System Audio Recorder</p>
+          <h1>Record Meetings and Browser Audio.</h1>
+          <p class="hero-text">Capture audio playing on your Mac without uploading a conversation or inviting a meeting bot. Private, focused, and free.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://github.com/hgus107/voxora/releases/latest/download/Voxora-1.2.dmg">Download For Apple Silicon</a>
+            <span class="download-note">Free · macOS 14+ · Version 1.2</span>
+          </div>
+        </div>
+
+        <div class="app-preview voxora-preview" aria-label="Voxora Application Preview">
+          <div class="window-bar">
+            <div class="traffic-lights" aria-hidden="true"><span></span><span></span><span></span></div>
+            <span class="window-title">Voxora</span>
+          </div>
+          <div class="voxora-app">
+            <div class="voxora-header"><span>☑ I have permission to record</span><span class="voxora-brand"><b>Voxora</b><small>Record Meetings and Browser Audio</small></span><span>Reduce Noise ◯</span></div>
+            <div class="voxora-recorder"><strong>00:00:00</strong><span class="voxora-wave">▁▂▃▅▃▆▂▁▃▇▅▂▁▂▅▃▁</span><button type="button" tabindex="-1"><i></i> Start</button></div>
+            <small class="voxora-format">* Without Noise Filter: M4A &nbsp;•&nbsp; With Noise Filter: WAV</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits section-shell" aria-labelledby="voxora-benefits-title">
+        <div class="section-heading"><p class="eyebrow">Built For Private Capture</p><h2 id="voxora-benefits-title">The Audio Stays On Your Mac.</h2></div>
+        <div class="card-grid">
+          <article class="feature-card"><h3>Local</h3><p>Voxora records and processes audio on the machine. Nothing is uploaded.</p></article>
+          <article class="feature-card"><h3>Focused</h3><p>Capture meetings, calls, browser video, or any other system audio in one compact window.</p></article>
+          <article class="feature-card"><h3>In Your Control</h3><p>Pause, resume, finish, choose the filename, and decide whether to save or discard.</p></article>
+        </div>
+      </section>
+
+      <section class="formats section-shell" aria-labelledby="voxora-functions-title">
+        <div><p class="eyebrow">Simple Controls</p><h2 id="voxora-functions-title">Record Without The Clutter.</h2></div>
+        <div class="format-list" aria-label="Voxora Functions"><span>System Audio</span><span>Pause &amp; Resume</span><span>Noise Filter</span><span>M4A</span><span>WAV</span><span>Menu Bar</span></div>
+      </section>
+
+      <section class="install section-shell" aria-labelledby="voxora-install-title">
+        <div class="section-heading"><p class="eyebrow">Three Simple Steps</p><h2 id="voxora-install-title">From Mac Audio To Saved Recording.</h2></div>
+        <ol class="install-list">
+          <li><span>1</span><div><strong>Download Voxora</strong><p>Get the signed Apple Silicon installer.</p></div></li>
+          <li><span>2</span><div><strong>Grant System Audio Access</strong><p>Allow Screen &amp; System Audio Recording when macOS asks.</p></div></li>
+          <li><span>3</span><div><strong>Record And Save</strong><p>Confirm permission, press Start, then finish and choose where the recording belongs.</p></div></li>
+        </ol>
+        <a class="button button-primary install-button" href="https://github.com/hgus107/voxora/releases/latest/download/Voxora-1.2.dmg">Download Voxora Free</a>
+      </section>
+    </main>
+
     <footer class="footer section-shell">
       <div class="brand footer-brand"><span class="brand-mark" data-current-mark aria-hidden="true">K</span><span data-current-name>Kiln</span></div>
       <p><span data-current-version>Version 0.1.2 · macOS 13+</span> · Apple Silicon</p>
@@ -215,6 +266,6 @@
       </nav>
     </footer>
 
-    <script src="./site.js?v=20260829-1" defer></script>
+    <script src="./site.js?v=20260905-1" defer></script>
   </body>
 </html>
