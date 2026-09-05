@@ -60,6 +60,16 @@ body[data-product="voxora"] .product-tab.active {
   color: #090909;
 }
 
+body[data-product="voxora"] .brand-mark {
+  color: #ffffff;
+  background: #050505;
+  border: 1px solid #343434;
+}
+
+.voxora-copy .hero-text {
+  text-align: center;
+}
+
 .voxora-preview {
   background: #090909;
 }
