@@ -52,6 +52,9 @@ function setProduct(productName, updateHistory = true) {
   });
   document.querySelectorAll("[data-current-name]").forEach((node) => { node.textContent = product.name; });
   document.querySelectorAll("[data-current-mark]").forEach((node) => { node.textContent = product.mark; });
+  document.querySelector(".topbar > .brand").href = selectedName === "voxora"
+    ? "./suite.html?app=voxora"
+    : "./";
   document.querySelectorAll("[data-current-github]").forEach((link) => { link.href = product.github; });
   document.querySelectorAll("[data-current-releases]").forEach((link) => { link.href = `${product.github}/releases`; });
   document.querySelectorAll("[data-current-license]").forEach((link) => { link.href = `${product.github}/blob/main/LICENSE`; });
